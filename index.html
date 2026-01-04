@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="head">To-<span>Do</span>-List</h1>
+    <h2 class="head">You'll Create You'r Own Rules, It's makes you'r life as Perfect</h2>
+    <section class="to-do">
+        <div class="add-bx">
+            <input type="text" id="inp" placeholder="Enter the task">
+            <button id="btn-in" onclick="cls()">Add to List</button>
+        </div>
+        <div class="receive-bx">
+            <ul id="lst">
+                <div class="todo">
+                    <li>#Daily Task </li><button class="btinp" >complete</button><button class="btinp" >remove</button>
+                </div>
+                <div class="todo">
+                    <li>#weekly task </li><button class="btinp" >complete</button><button class="btinp">remove</button>
+                </div>
+                <div class="todo">
+                    <li>#Monthly Task </li><button class="btinp" >complete</button><button class="btinp" >remove</button>
+                </div>
+                <div class="todo">
+                    <li>Wake up morning 5am </li><button class="btinp" >complete</button><button class="btinp" >remove</button>
+                </div>
+                
+            </ul>
+        </div>
+         <!-- <ol>
+            <li>hello</li>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui repudiandae ad harum.</p> 
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+        </ol> 
+         -->
+    </section>
+    
+    <script>
+        console.log("---------------");
+        
+        var ll = document.getElementById("btn-in");
+        var llinp = document.getElementById("inp");
+        var lst = document.getElementById("lst");
+        // GET TODO CLASS CHILD TAG LIKE BUTTON
+        var todo = document.getElementsByClassName('todo');
+     
+        
+        
+        // CREATE CLS FUNCTION
+        function cls(event){
+
+            // CREATE THE DIV TAG
+            console.log('Creation started!');
+            var tag_div = document.createElement('div');
+            console.log(tag_div);
+            console.log(tag_div.classList);
+            tag_div.classList.add('todo');
+            console.log(tag_div.classList);
+            console.log(tag_div.parentElement);
+            lst.appendChild(tag_div);
+            console.log(tag_div.parentElement);
+            
+            
+            // // CREATE THE LIST AND APPEND TO DIV TAG
+            var create_li = document.createElement('li');
+            create_li.textContent = ("#",llinp.value);
+            tag_div.appendChild(create_li);
+            console.log(create_li.parentElement);
+
+            // CREATE DIV TAG 1 AND APPEND TO BUTTON
+            var tag_div1 = document.createElement('div');
+            var bt_one = '<button class="btinp" id="com-btn" onclick="clickIt(event)">complete</button>'
+            tag_div1.innerHTML = bt_one;
+            tag_div.appendChild(tag_div1);
+
+            // CREATE DIV TAG 2 AND APPEND TO BUTTON
+            var tag_div2 = document.createElement('div');
+            var bt_two = '<button class="btinp" id="rem-btn" onclick="clickOut(event)">remove</button>'
+            tag_div2.innerHTML = bt_two;
+            tag_div.appendChild(tag_div2);
+
+
+            // // CREATE COMPLETE BUTTON AND APPEND TO LIST
+            // var btn_one = document.createElement('button')
+            // btn_one.textContent = 'Complete';
+            // btn_one.classList.add('btinp');
+            // tag_div.appendChild(btn_one);
+            // console.log(btn_one.parentElement);
+            
+            // CREATE DELETE BUTTON  AND APPEND TO DIV TAG
+            // var btn_two = document.createElement('button');
+            // btn_two.textContent = 'remove';
+            // btn_two.classList.add('btinp');
+            // tag_div.appendChild(btn_two);
+            // console.log(btn_two.parentElement);
+            
+            
+            
+            
+            
+            // var lie = document.createElement("li");
+            // lie.innerText = llinp.value;
+            // todoname.appendChild = lie;
+            // llinp.value = null
+            
+            // // Create button and button class
+            // var crbt = document.createElement("button");
+            // crbt.innerHTML = "remove";
+            // crbt.classList.add("btinp");
+            // lie.appendChild = crbt;
+            // // console.log(document.querySelector('.btinp').textContent);
+            // var dell = document.querySelector('.btinp')
+            // // console.log('from lie class', dell);
+        
+            llinp.value = null;
+        }
+        
+        // console.log("-------------------AFTER FUNCTION 1--------------------------------");
+        
+        // CREATE CLICKIT FUNCTION
+        function clickIt(event){
+            event.target.textContent = "Completed"
+            event.target.parentElement.parentElement.classList.add('com-class');
+            event.target.classList.add('com-bt');            
+            
+        }
+
+        // CREATE CLICKOUT FUNCTION
+        function clickOut(event){
+            alert('YOU WANT REMOVE!');
+            event.target.parentElement.parentElement.remove();
+            
+        }
+        
+        
+        
+    </script>
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
